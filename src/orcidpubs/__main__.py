@@ -1,7 +1,8 @@
 """
 Original: https://github.com/choldgraf/choldgraf.github.io/blob/main/scripts/orcid-publications.py
 """
-import argparse
+
+# import argparse
 import json
 from pathlib import Path
 
@@ -142,4 +143,3 @@ path_out = Path("publications.md").absolute()
 # fix encoding to support special characters:
 path_out.write_text(mds, encoding="utf-8")
 print(f"Finished updating ORCID entries at: {path_out}")
-

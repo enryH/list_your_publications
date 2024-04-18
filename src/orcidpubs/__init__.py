@@ -6,7 +6,7 @@ from importlib import metadata
 
 __version__ = metadata.version("list-publications")
 
-import orcidpubs.query
+# import orcidpubs.query
 
 # The __all__ variable is a list of variables which are imported
 # when a user does "from example import *"
