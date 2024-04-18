@@ -13,13 +13,12 @@
 import os
 from importlib import metadata
 
-
 # -- Project information -----------------------------------------------------
 
-project = "mockup"
+project = "orcidpubs"
 copyright = "2024, Jakob Nybo Nissen, Henry Webel"
 author = "Jakob Nybo Nissen, Henry Webel"
-PACKAGE_VERSION = metadata.version("rasmussenlab-mockup")
+PACKAGE_VERSION = metadata.version("list-publications")
 version = PACKAGE_VERSION
 release = PACKAGE_VERSION
 
@@ -117,7 +116,7 @@ if os.environ.get("READTHEDOCS") == "True":
     from pathlib import Path
 
     PROJECT_ROOT = Path(__file__).parent.parent
-    PACKAGE_ROOT = PROJECT_ROOT / "src" / "mockup"
+    PACKAGE_ROOT = PROJECT_ROOT / "src" / "orcidpubs"
 
     def run_apidoc(_):
         from sphinx.ext import apidoc

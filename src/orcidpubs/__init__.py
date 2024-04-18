@@ -4,10 +4,10 @@
 
 from importlib import metadata
 
-__version__ = metadata.version("rasmussenlab-mockup")
+__version__ = metadata.version("list-publications")
 
-from .mockup import add_one, Circle
+import orcidpubs.query
 
 # The __all__ variable is a list of variables which are imported
 # when a user does "from example import *"
-__all__ = ["add_one", "Circle"]
+# __all__ = []
