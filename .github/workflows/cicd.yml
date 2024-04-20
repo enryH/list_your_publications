@@ -57,6 +57,10 @@ jobs:
           pip install -e .
       - name: Run tests
         run: python -m pytest tests
+      - name: Test Commandline Script
+        run: |
+          fetch_orcid_pubs --help
+          fetch_orcid_pubs --orcid-id 0000-0001-8833-7617 --lastname Webel --output-file test.md
   
   build_source_dist:
     name: Build source distribution

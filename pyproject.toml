@@ -1,9 +1,8 @@
 [project]
 authors = [
-  {name = "Jakob Nybo Nissen", email = "jakobnybonissen@gmail.com"},
   {name = "Henry Webel", email = "henry.webel@sund.ku.dk"},
 ]
-description = "A small example package"
+description = "Fetch your ORCID publications as a markdown file."
 name = "list-publications"
 # This means: Load the version from the package itself.
 # See the section below: [tools.setuptools.dynamic]
@@ -22,6 +21,9 @@ dependencies = [
     'pandas',
     'rich',
 ]
+
+[project.scripts]
+fetch_orcid_pubs = "orcidpubs.__main__:main"
 
 [project.urls]
 "Bug Tracker" = "https://github.com/RasmussenLab/python_package/issues"
