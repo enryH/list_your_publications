@@ -49,7 +49,6 @@ def main():
                 break
 
         meta = fetchmeta(doi, fmt="dict")
-        # doi_url = meta["URL"]
         title = meta["title"]
         # references_count = meta["references-count"]
         year = meta["issued"]["date-parts"][0][0]
