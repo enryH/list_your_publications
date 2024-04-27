@@ -8,8 +8,7 @@ name = "list-publications"
 # See the section below: [tools.setuptools.dynamic]
 dynamic = ["version"]
 readme = "README.md"
-# We use features for Python 3.11, so we test it here.
-requires-python = ">=3.11"
+requires-python = ">=3.9"
 # These are keywords
 classifiers = [
   "Programming Language :: Python :: 3",
@@ -41,6 +40,9 @@ docs = [
 # Configure the Ruff linter: Ignore error number 501
 [tool.ruff]
 ignore = ["E501"]
+
+[tool.flake8]
+max-line-length = 120
 
 [build-system]
 build-backend = "setuptools.build_meta"
