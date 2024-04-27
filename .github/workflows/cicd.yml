@@ -60,7 +60,7 @@ jobs:
       - name: Test Commandline Script
         run: |
           fetch_orcid_pubs --help
-          fetch_orcid_pubs --orcid-id 0000-0001-8833-7617 --lastname Webel --output-file test.md
+        # fetch_orcid_pubs --orcid-id 0000-0001-8833-7617 --lastname Webel --output-file test.md
   
   build_source_dist:
     name: Build source distribution
@@ -82,31 +82,16 @@ jobs:
         - uses: actions/upload-artifact@v4
           with:
             path: ./dist/*.tar.gz
-  # Needed in case of building packages with external binaries (e.g. Cython, RUst-extensions, etc.)
-  # build_wheels:
-  #   name: Build wheels on ${{ matrix.os }}
-  #   if: startsWith(github.ref, 'refs/heads/main') || startsWith(github.ref, 'refs/tags')
-  #   runs-on: ${{ matrix.os }}
-  #   strategy:
-  #       matrix:
-  #         os: [ubuntu-20.04, windows-2019, macOS-10.15]
+        
+        - name: install package from build
+          run: |
+            python -m pip install dist/*.tar.gz
 
-  #   steps:
-  #       - uses: actions/checkout@v4
-
-  #       - uses: actions/setup-python@v5
-  #         with:
-  #           python-version: "3.10"
-
-  #       - name: Install cibuildwheel
-  #         run: python -m pip install cibuildwheel==2.3.1
-
-  #       - name: Build wheels
-  #         run: python -m cibuildwheel --output-dir wheels
-
-  #       - uses: actions/upload-artifact@v4
-  #         with:
-  #           path: ./wheels/*.whl
+        - name: Test Commandline Script
+          run: |
+            fetch_orcid_pubs --help
+            fetch_orcid_pubs --orcid-id 0000-0001-8833-7617 --lastname Webel --output-file test.md  
+  
 
   publish:
       name: Publish package
