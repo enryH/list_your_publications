@@ -103,16 +103,17 @@ jobs:
           - build_source_dist
           # - build_wheels
       runs-on: ubuntu-latest
-
+      environment:
+        name: testpypi
+        url: https://test.pypi.org/project/list-publications/
+      permissions:
+        id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
       steps:
           - uses: actions/download-artifact@v4
             with:
               name: artifact
               path: ./dist
-
-          - uses: pypa/gh-action-pypi-publish@release/v1
+          - name: Publish package distributions to PyPI
+            uses: pypa/gh-action-pypi-publish@release/v1
             with:
-              # remove repository key to set the default to pypi (not test.pypi.org) 
               repository-url: https://test.pypi.org/legacy/
-              user: __token__
-              password: ${{ secrets.PYPI_API_TOKEN }}
