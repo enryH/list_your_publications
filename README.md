@@ -1,5 +1,9 @@
 # Example Python package
 
+Source was based on
+[article from Chris Holdgraf](https://chrisholdgraf.com/blog/2022/orcid-auto-update/)
+from his blog.
+
 ## How to use
 
 Install the package from github using pip:
